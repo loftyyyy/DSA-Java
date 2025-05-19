@@ -1,0 +1,61 @@
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.*;
+import java.math.*;
+public class Main {
+
+    public static void main(String[] args){
+        int[] arr = {1,2,3,4,6,34};
+        int target = 34;
+
+        // Linear Search
+        boolean result = LinearSearch(arr, target);
+//        System.out.println("Linear Search: " + result);
+        // Binary Search
+        // First sort the array
+         boolean result2 = BinarySearch(arr,0, arr.length, 14);
+        System.out.println(result2);
+
+
+    }
+
+    public static boolean LinearSearch(int[] arr, int target){
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == target){
+                return true;
+            }
+
+        }
+
+        return false;
+
+    }
+
+    public static boolean BinarySearch(int[] arr, int low, int high, int target){
+//        [low, high)
+        
+        while(low < high){
+
+            int mid = low + (high - low)/2;
+
+            if(arr[mid] == target){
+
+                return true;
+
+            }else if(target > arr[mid]){
+
+                low = mid + 1;
+
+            }else {
+
+                high = mid;
+
+            }
+
+
+            
+        }
+        return false;
+
+    }
+}
