@@ -22,10 +22,12 @@ public class Main {
 
 
         // Jump Search
-        int[] arr2 = {2,3,1};
-        BubbleSort(arr2);
+//        int[] arr2 = {2,3,1};
+//        BubbleSort(arr2);
 
+//        newQueue(3);
 
+        newStack();
     }
 
     public static boolean LinearSearch(int[] arr, int target){
@@ -114,4 +116,35 @@ public class Main {
 
 
     }
+
+    public static void newQueue(int head){
+        Node temp = new Node(head);
+        Queue queue = new Queue();
+        queue.enqueue(temp);
+        queue.enqueue(new Node(2));
+        queue.enqueue(new Node(3));
+        queue.enqueue(new Node(4));
+        queue.enqueue(new Node(5));
+
+        System.out.println(queue.peek());
+        queue.dequeue();
+    }
+    public static void newStack(){
+
+        Node temp = new Node(1);
+        Stack stack = new Stack();
+        stack.push(temp);
+        stack.push(new Node(2));
+        stack.push(new Node(3));
+        stack.push(new Node(4));
+        stack.push(new Node(5));
+
+        stack.peek();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.peek();
+    }
 }
+
