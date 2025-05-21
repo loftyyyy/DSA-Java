@@ -27,8 +27,10 @@ public class Main {
 
 //        newQueue(3);
 
-        newStack();
+//        newStack();
+        System.out.println(idk(5));
     }
+
 
     public static boolean LinearSearch(int[] arr, int target){
         for(int i = 0; i < arr.length; i++){
@@ -145,6 +147,19 @@ public class Main {
         stack.pop();
         stack.pop();
         stack.peek();
+    }
+
+    public static int idk(int n){
+        if(n == 1){
+            return 1;
+        }
+
+
+        int out =  n + idk(n - 1);
+        return out;
+
+
+
     }
 }
 
