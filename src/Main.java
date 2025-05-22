@@ -150,6 +150,10 @@ public class Main {
     }
 
     public static int idk(int n){
+//        Recursion:
+//        Pre n +
+//        Recurse
+//        Post
         if(n == 1){
             return 1;
         }
