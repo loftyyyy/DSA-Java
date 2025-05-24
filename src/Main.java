@@ -170,35 +170,35 @@ public class Main {
 
     }
 
-    public static boolean Walk(char[][] maze, char wall, Point curr, Point end, boolean[][] seen , ArrayList<Point> path) {
+    public static boolean Walk(char[][] maze, char wall, Point curr, Point end, boolean[][] seen, ArrayList<Point> path) {
         int[][] dir = {
                 {-1, 0}, {1, 0}, {0, -1}, {0, 1}
         };
 
-        if (curr.x < 0 || curr.x >= maze[0].length || curr.y < 0 || curr.y >= maze.length) {
+        if (curr.column < 0 || curr.column >= maze[0].length || curr.row < 0 || curr.row >= maze.length) {
             return false;
         }
 
-        if (maze[curr.y][curr.x] == wall) {
+        if (maze[curr.row][curr.column] == wall) {
             return false;
         }
 
-        if (curr.x == end.x && curr.y == end.y) {
-            path.add(new Point(curr.x, curr.y));
+        if (curr.column == end.column && curr.row == end.row) {
+            path.add(new Point(curr.row, curr.column));
             return true;
         }
 
-        if (seen[curr.y][curr.x]) {
+        if (seen[curr.row][curr.column]) {
             return false;
         }
 
-        seen[curr.y][curr.x] = true;
-        path.add(new Point(curr.x, curr.y));
+        seen[curr.row][curr.column] = true;
+        path.add(new Point(curr.row, curr.column));
 
         for (int i = 0; i < dir.length; ++i) {
-            int x = dir[i][0];
-            int y = dir[i][1];
-            Point next = new Point(curr.x + x, curr.y + y);
+            int dRow = dir[i][0];
+            int dCol = dir[i][1];
+            Point next = new Point(curr.row + dRow, curr.column + dCol);
             if (Walk(maze, wall, next, end, seen, path)) {
                 return true;
             }
@@ -209,8 +209,8 @@ public class Main {
     }
     public static void MazeRecursion() {
         char[][] maze = {
-                {'#', '#', '#', 'S'},
-                {'#', '#', '#', ' '},
+                {'#', 'S', '#', '#'},
+                {'#', ' ', '#', ' '},
                 {' ', ' ', ' ', ' '},
                 {'E', '#', '#', '#'},
         };
@@ -218,13 +218,13 @@ public class Main {
         boolean[][] seen = new boolean[maze.length][maze[0].length];
         ArrayList<Point> path = new ArrayList<>();
 
-        Point start = new Point(3, 0);
-        Point end = new Point(0, 3);
+        Point start = new Point(0, 1);
+        Point end = new Point(3, 0);
 
         if (Walk(maze, '#', start, end, seen, path)) {
             System.out.println("Path found:");
             for (Point p : path) {
-                System.out.println("(" + p.x + ", " + p.y + ")");
+                System.out.println("(" + p.row + ", " + p.column + ")");
             }
         } else {
             System.out.println("No path found.");
