@@ -165,5 +165,20 @@ public class Main {
 
 
     }
+
+    public static boolean Walk(String[] maze, String wall, int[] curr, int[] end ){
+
+
+    }
+    public staic String[] MazeRecursion(String[] maze){
+
+
+
+
+
+
+
+    }
+
 }
 
