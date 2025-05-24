@@ -1,7 +1,7 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.*;
-import java.math.*;
+
 public class Main {
 
     public static void main(String[] args){
@@ -28,7 +28,11 @@ public class Main {
 //        newQueue(3);
 
 //        newStack();
-        System.out.println(idk(5));
+//        System.out.println(idk(5));
+
+        MazeRecursion();
+
+        // Walk the maze
     }
 
 
@@ -166,14 +170,84 @@ public class Main {
 
     }
 
-    public static boolean Walk(String[] maze, String wall, int[] curr, int[] end ){
+    public static boolean Walk(char[][] maze, char wall, Point curr, Point end, boolean[][] seen , ArrayList<Point> path) {
+        int[][] dir = {
+                {-1, 0}, {1, 0}, {0, -1}, {0, 1}
+        };
 
+        // Base Case 1: Off the map
+        if (curr.x < 0 || curr.x >= maze[0].length || curr.y < 0 || curr.y >= maze.length) {
+            return false;
+        }
 
+        // Base Case 2: On a wall
+        if (maze[curr.y][curr.x] == wall) {
+            return false;
+        }
+
+        // Base Case 3: The end
+        if (curr.x == end.x && curr.y == end.y) {
+            path.add(new Point(end.x, end.y));
+            return true;
+        }
+
+        // Base Case 4: Already seen
+        if (seen[curr.y][curr.x]) {
+            return false;
+        }
+
+        // Pre
+        seen[curr.y][curr.x] = true;
+        path.add(new Point(curr.x, curr.y));
+
+        // Recurse
+        for (int i = 0; i < dir.length; ++i) {
+            int x = dir[i][0];
+            int y = dir[i][1];
+            Point next = new Point(curr.x + x, curr.y + y);
+            if (Walk(maze, wall, next, end, seen, path)) {
+                return true;
+            }
+        }
+
+        // Post
+        path.remove(path.size() - 1);
+        return false;
     }
-    public staic String[] MazeRecursion(String[] maze){
+    public static void MazeRecursion(){
+
+        char[][] maze = {
+            {'#', '#', '#', 'S'},
+            {'#', '#', '#', ' '},
+            {' ', ' ', ' ', ' '},
+            {'E', '#', '#', '#'},
+
+        };
 
 
+        // Create the seen array, initialized to false
+        boolean[][] seen = new boolean[maze.length][maze[0].length];
 
+        // Create a dynamic path array
+        ArrayList<Point> path = new ArrayList<>();
+
+        // Example of printing the seen matrix
+        for (int i = 0; i < seen.length; i++) {
+            for (int j = 0; j < seen[0].length; j++) {
+                System.out.print(seen[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+
+        if (Walk(maze, '#', new Point(3, 0), new Point(0, 3), seen, path)) {
+            System.out.println("Path found:");
+            for (Point p : path) {
+                System.out.println(p.x + ", " + p.y);
+            }
+        } else {
+            System.out.println("No path found.");
+        }
 
 
 
