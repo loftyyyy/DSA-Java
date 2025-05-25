@@ -231,5 +231,12 @@ public class Main {
         }
     }
 
+
+    public static void QuickSort(){
+        // QuickSort implementation
+        // This is a placeholder for the QuickSort method.
+        // You can implement the QuickSort algorithm here.
+    }
+
 }
 
