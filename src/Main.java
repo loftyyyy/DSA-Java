@@ -39,6 +39,7 @@ public class Main {
 
         int[] unsortedArray = {32,2,6,9,12,21,69,37,8};
         QuickSort(unsortedArray, 0, unsortedArray.length - 1);
+        System.out.println(Arrays.toString(unsortedArray));
     }
 
 
@@ -237,6 +238,33 @@ public class Main {
         }
     }
 
+    public static int Partition(int[] array, int low, int high){
+        int pivot = array[high];
+        int index = low - 1;
+
+        for(int i = low; i < high; ++i){
+            
+            if(array[i] <= pivot){
+                index++;
+
+                int temp = array[i];
+                array[i] = array[index];
+                array[index] = temp;
+
+
+            }
+
+
+        }
+        index++;
+        int temp = array[index];
+        array[index] = array[high];
+        array[high] = temp;
+
+        return index;
+
+
+    }
 
     public static void QuickSort(int[] unsortedArray, int low, int high){
 
@@ -244,6 +272,17 @@ public class Main {
         // This is a placeholder for the QuickSort method.
         //
         // You can implement the QuickSort algorithm here.
+
+
+        if(low >= high){
+            return;
+
+        }
+
+        int pivotIndex = Partition(unsortedArray, low, high);
+        QuickSort(unsortedArray, low, pivotIndex - 1);
+        QuickSort(unsortedArray, pivotIndex + 1, high);
+
 
 
 
