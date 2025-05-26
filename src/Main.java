@@ -30,9 +30,15 @@ public class Main {
 //        newStack();
 //        System.out.println(idk(5));
 
-        MazeRecursion();
+//
+//        MazeRecursion();
 
         // Walk the maze
+        //
+
+
+        int[] unsortedArray = {32,2,6,9,12,21,69,37,8};
+        QuickSort(unsortedArray, 0, unsortedArray.length - 1);
     }
 
 
@@ -232,11 +238,17 @@ public class Main {
     }
 
 
-    public static void QuickSort(){
+    public static void QuickSort(int[] unsortedArray, int low, int high){
+
         // QuickSort implementation
         // This is a placeholder for the QuickSort method.
+        //
         // You can implement the QuickSort algorithm here.
+
+
+
     }
+
 
 }
 
