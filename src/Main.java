@@ -5,6 +5,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args){
+
         int[] arr = {1,2,3,4,6,34};
         int target = 34;
         boolean[] storey = {false, false, false, false, true, true, true, true };
@@ -282,6 +283,7 @@ public class Main {
         int pivotIndex = Partition(unsortedArray, low, high);
         QuickSort(unsortedArray, low, pivotIndex - 1);
         QuickSort(unsortedArray, pivotIndex + 1, high);
+
 
 
 
