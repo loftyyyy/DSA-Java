@@ -1,14 +1,14 @@
-public class Node {
-    public int data;
-    private Node next;
+public class Node<T> {
+    public T data;
+    private Node<T> next;
 
 
-    public Node (int data) {
+    public Node (T data) {
         this.data = data;
         this.next = null;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 
@@ -16,7 +16,7 @@ public class Node {
         return this.next;
     }
 
-    public int getData() {
+    public T getData() {
         return this.data;
     }
 }

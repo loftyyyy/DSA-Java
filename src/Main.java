@@ -132,7 +132,7 @@ public class Main {
     }
 
     public static void newQueue(int head){
-        Node temp = new Node(head);
+        Node<Integer> temp = new Node<>(head);
         Queue queue = new Queue();
         queue.enqueue(temp);
         queue.enqueue(new Node(2));
@@ -145,7 +145,7 @@ public class Main {
     }
     public static void newStack(){
 
-        Node temp = new Node(1);
+        Node<Integer> temp = new Node<>(1);
         Stack stack = new Stack();
         stack.push(temp);
         stack.push(new Node(2));
