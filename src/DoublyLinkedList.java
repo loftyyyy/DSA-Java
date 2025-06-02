@@ -146,7 +146,30 @@ public class DoublyLinkedList{
 
     }
 
-    public void removeAt(){
+    public void removeAt(int index){
+        if(this.length == 0){
+            throw new IllegalStateException("Bro really trying to remove something that doesn't exist");
+
+        }
+        if(index >= this.length || index < 0){
+            throw new IllegalStateException("Bro really trying to get something that's beyond the current items");
+
+        }else{
+            Node<T> curr = this.head;
+
+            for(int i = 0; curr != null && i < index; ++i ){
+                curr = curr.next;
+
+
+
+            }
+
+
+
+
+        }
+
+
 
     }
 
