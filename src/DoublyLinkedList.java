@@ -154,16 +154,44 @@ public class DoublyLinkedList{
         if(index >= this.length || index < 0){
             throw new IllegalStateException("Bro really trying to get something that's beyond the current items");
 
-        }else{
-            Node<T> curr = this.head;
+        }
+        if(index == 0 && this.length == 1){
+            this.head = null;
+            this.tail = null;
 
-            for(int i = 0; curr != null && i < index; ++i ){
-                curr = curr.next;
+        }
+        else{
+            Node<T> curr = this.head;
+            if(index == 0){
+                this.head.getNext().setPrev(null);
+                this.head = this.head.getNext();
+
+
+            }else if(index == this.length - 1){
+                this.tail.getPrev().setNext(null);
+                this.tail = this.tail.getPrev();
+
+            }else{
+
+                for(int i = 0; curr != null && i < index; ++i ){
+                    curr = curr.next;
+
+
+                        
+                    }
+
+                        curr.getNext().setPrev(curr.getPrev());
+                        curr.getPrev().setNext(curr.getNext());
+
+
+
+
+                }
 
 
 
             }
-
+            this.length--;
 
 
 
