@@ -4,10 +4,24 @@ public class BinarySearch{
 
     }
 
-    public int[] traverse(BinaryNode<T> curr, int[] path){
+    public ArrayList<Integer> traverse(BinaryNode<T> curr, ArrayList<Integer> path){
+        if(!curr){
+            return path;
+        }
+        // Pre
+        path.add(curr.getData());
+
+        // Recurse
+        walk(curr.left, path);
+        walk(curr.right, path);
+
+        // Post
+        return path;
+
 
     }
     public void preOrder(){
+
 
 
     }
