@@ -58,7 +58,7 @@ public class Main {
 
     public static boolean BinarySearch(int[] arr, int low, int high, int target){
 //        [low, high)
-        
+
         while(low < high){
 
             int mid = low + (high - low)/2;
@@ -78,7 +78,7 @@ public class Main {
             }
 
 
-            
+
         }
         return false;
 
@@ -244,7 +244,7 @@ public class Main {
         int index = low - 1;
 
         for(int i = low; i < high; ++i){
-            
+
             if(array[i] <= pivot){
                 index++;
 
@@ -288,7 +288,7 @@ public class Main {
 
 
 
-        
+
 
 
 

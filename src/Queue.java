@@ -53,7 +53,7 @@ public class Queue {
 
     public int peek(){
 
-        return this.head.getData();
+        return (int) this.head.getData();
 
     }
 }
