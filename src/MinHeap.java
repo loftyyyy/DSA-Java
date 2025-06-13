@@ -1,5 +1,5 @@
 public class MinHeap{
-    private int[10] list;
+    private int[] list;
     private int length;
 
     public MinHeap(){
@@ -41,14 +41,14 @@ public class MinHeap{
 
         int parentIdx = this.getParent(index);
         int parentValue = this.list[parentIdx];
-        int currentValue = this.list[index]
+        int currentValue = this.list[index];
 
         if(index == 0){
             return;
         }
 
-        if(currentValue > parenValue){
-            this.list[index] = parrentValue ;
+        if(currentValue > parentValue){
+            this.list[index] = parentValue ;
             this.list[parentIdx] = currentValue;
             heapifyUp(parentIdx);
 
@@ -65,7 +65,7 @@ public class MinHeap{
         int leftChildIndex = this.getLeftChild(index);
         int rightChildIndex = this.getRightChild(index);
 
-        if(index >= this.length || leftIndex >= this.length){
+        if(index >= this.length || leftChildIndex >= this.length){
             return;
         }
 
@@ -97,12 +97,12 @@ public class MinHeap{
     }
 
     private int getLeftChild(int key){
-        return (key * 2) + 1
+        return (key * 2) + 1;
 
     }
 
-    private int getLeftChild(int key){
-        return (key * 2) + 2
+    private int getRightChild(int key){
+        return (key * 2) + 2;
 
     }
 }
